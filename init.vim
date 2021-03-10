@@ -120,6 +120,7 @@ let g:airline_powerline_fonts = 0
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
 let g:coc_global_extensions = [
   \ 'coc-actions',
+  \ 'coc-clangd',
   \ 'coc-diagnostic',
   \ 'coc-explorer',
   \ 'coc-flutter',
@@ -132,6 +133,18 @@ let g:coc_global_extensions = [
   \ 'coc-sourcekit',
   \ 'coc-stylelint',
   \ 'coc-syntax']
+
+" tab键自动补全
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " ===
 " === MarkdownPreview

@@ -32,7 +32,7 @@ if has('presitent_undo')
         set undofile
         set undodir=~/.config/nvim/tmp/undo,.
 endif
-set colorcolumn=100
+
 set updatetime=100
 
 " 键位修改
@@ -120,6 +120,7 @@ let g:airline_powerline_fonts = 0
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
 let g:coc_global_extensions = [
   \ 'coc-actions',
+  \ 'coc-clangd',
   \ 'coc-diagnostic',
   \ 'coc-explorer',
   \ 'coc-flutter',
