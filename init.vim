@@ -5,7 +5,7 @@ if empty(glob('~/.config/nvim/_machine_specific.vim'))
         silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
 endif
 source ~/.config/nvim/_machine_specific.vim
-
+set nospell
 set encoding=utf-8      " 使用utf-8编码
 set t_Co=256    " 256色显示启用
 filetype indent on      " 自动甄别文件类型，载入对应缩进规则
@@ -32,7 +32,8 @@ if has('presitent_undo')
         set undofile
         set undodir=~/.config/nvim/tmp/undo,.
 endif
-
+set nu
+set relativenumber
 set updatetime=100
 
 " 键位修改
@@ -184,3 +185,5 @@ au BufWrite *.js :Auoformat
 let g:vmt_cycle_list_item_markers = 1
 let g:vmt_fence_text = 'TOC'
 let g:vmt_fence_closing_text = '/TOC'
+
+set clipboard+=unnamedplus
